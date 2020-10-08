@@ -12,6 +12,7 @@ namespace ConsoleApplication1
             var builder = new IniFileBuilder();
             if (!File.Exists(filePath))
                 throw new InvalidFileInput("Problem with file" + filePath);
+            
             if (Path.GetExtension(filePath) != ".ini")
                 throw new InvalidFileType("Wrong type file" + filePath);
 

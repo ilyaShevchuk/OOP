@@ -13,21 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8829ed9f-50d8-4042-9806-201ba16e9883" name="Default Changelist" comment="version 1">
-      <change afterPath="$PROJECT_DIR$/ConsoleApplication1/RegularForms.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.lab1/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lab1/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.lab1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lab1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/ConsoleApplication1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/ConsoleApplication1.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/INIparse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/INIparse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/MyEx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/MyEx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/bin/Debug/ConsoleApplication1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/bin/Debug/ConsoleApplication1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/bin/Debug/ConsoleApplication1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/bin/Debug/ConsoleApplication1.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/obj/Debug/ConsoleApplication1.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/obj/Debug/ConsoleApplication1.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/obj/Debug/ConsoleApplication1.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/obj/Debug/ConsoleApplication1.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/obj/Debug/ConsoleApplication1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/obj/Debug/ConsoleApplication1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleApplication1/obj/Debug/ConsoleApplication1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApplication1/obj/Debug/ConsoleApplication1.pdb" afterDir="false" />
-    </list>
+    <list default="true" id="8829ed9f-50d8-4042-9806-201ba16e9883" name="Default Changelist" comment="version 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +90,7 @@
       <workItem from="1601823476338" duration="440000" />
       <workItem from="1601829023841" duration="431000" />
       <workItem from="1602173714892" duration="657000" />
-      <workItem from="1602174494399" duration="2952000" />
+      <workItem from="1602174494399" duration="3255000" />
     </task>
     <task id="LOCAL-00001" summary="version 1">
       <created>1602174573405</created>
@@ -113,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602174573405</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="version 2">
+      <created>1602177740763</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602177740763</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +131,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="version 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 1" />
+    <MESSAGE value="version 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602177163864">
@@ -153,22 +147,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="647" y="310" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1601829037555" />
-    <state width="1493" height="203" key="GridCell.Tab.0.bottom" timestamp="1602177352638">
+    <state width="1493" height="203" key="GridCell.Tab.0.bottom" timestamp="1602177635338">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="203" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602177352638" />
-    <state width="1493" height="203" key="GridCell.Tab.0.center" timestamp="1602177352638">
+    <state width="1493" height="203" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602177635338" />
+    <state width="1493" height="203" key="GridCell.Tab.0.center" timestamp="1602177635338">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="203" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602177352638" />
-    <state width="1493" height="203" key="GridCell.Tab.0.left" timestamp="1602177352638">
+    <state width="1493" height="203" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602177635338" />
+    <state width="1493" height="203" key="GridCell.Tab.0.left" timestamp="1602177635338">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="203" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602177352638" />
-    <state width="1493" height="203" key="GridCell.Tab.0.right" timestamp="1602177352638">
+    <state width="1493" height="203" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602177635338" />
+    <state width="1493" height="203" key="GridCell.Tab.0.right" timestamp="1602177635338">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="203" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602177352638" />
+    <state width="1493" height="203" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602177635338" />
     <state width="1493" height="245" key="GridCell.Tab.1.bottom" timestamp="1602177135075">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -241,10 +235,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="60" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602174610092" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1602174621054">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1602177771891">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602174621054" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602177771891" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1601299719216">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
