@@ -15,6 +15,7 @@
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="RegularForms.cs" t="Include" />
       </e>
       <e p="lab1.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

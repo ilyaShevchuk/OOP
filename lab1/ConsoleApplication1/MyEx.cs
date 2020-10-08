@@ -10,9 +10,16 @@ namespace ConsoleApplication1
         
     }
 
-    public class InvalidInput : Exception
+    public class InvalidFileInput : Exception
     {
-        public InvalidInput(string message)
+        public InvalidFileInput(string message)
+            :base(message)
+        {}
+    }
+    
+    public class InvalidArgs : Exception
+    {
+        public InvalidArgs(string message)
             :base(message)
         {}
     }
@@ -20,6 +27,13 @@ namespace ConsoleApplication1
     public class InvalidSection : Exception
     {
         public InvalidSection(string message)
+            :base(message)
+        {}
+    }
+
+    public class InvalidFileType : Exception
+    {
+        public InvalidFileType(string message)
             :base(message)
         {}
     }

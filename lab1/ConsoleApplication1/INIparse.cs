@@ -10,28 +10,24 @@ namespace ConsoleApplication1
         public static ParsedIniFile Parse(string filePath)
         {
             var builder = new IniFileBuilder();
-            FileStream fs = null;
-            try
-            {
-                fs = File.Open(filePath, FileMode.Open);
-                fs.Close();
-            }
-            catch (Exception e)
-            {
-                throw new InvalidInput("Problems with File");
-            }
+            if (!File.Exists(filePath))
+                throw new InvalidFileInput("Problem with file" + filePath);
+            if (Path.GetExtension(filePath) != ".ini")
+                throw new InvalidFileType("Wrong type file" + filePath);
+
             var lines = File.ReadAllLines((filePath));
             var currentSection = new Dictionary<string, string>();
             string newSection = "";
+            RegularForms reg = new RegularForms();
             var firstSection = false;
             foreach (var line in lines)
             {
                 if (line == "")
                     continue;
                 
-                if (line[0] == '[')
+                if (reg.CheckValidSection(line))
                 {
-                    if (firstSection == true)
+                    if (firstSection)
                     {
                         builder.AddSection(newSection, currentSection);
                         currentSection = new Dictionary<string, string>();
@@ -42,12 +38,15 @@ namespace ConsoleApplication1
                 else if (line[0] != ';')
                 {
                     var keysAndValues = line.Split(new char[] {'=', ';'});
-                    currentSection.Add(keysAndValues[0].Replace(" ", ""), 
-                        keysAndValues[1].Replace(" ", ""));
+                    var newKey = keysAndValues[0].Replace(" ", "");
+                    var newValue = keysAndValues[1].Replace(" ", "");
+                    currentSection.Add(newKey, newValue);
+                    if (!reg.CheckValidKey(newKey) && !reg.CheckValidValue(newValue))
+                        throw new InvalidFileType("Invalid keys or values");
                     if (line == lines[lines.Length - 1])
                         builder.AddSection(newSection, currentSection);
                 }
-            }
+            } 
             return builder.Build();
         }
     }
