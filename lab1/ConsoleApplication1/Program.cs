@@ -13,8 +13,7 @@ namespace ConsoleApplication1
                 Console.Error.WriteLine("Bad args");
 
             try
-            {
-                ParsedIniFile myIniFile = IniParse.Parse(@args[0]);
+            { ParsedIniFile myIniFile = IniParse.Parse(@args[0]);
                 switch (args[3].ToLower())
                 {
                     case "int":
