@@ -5,12 +5,7 @@ namespace lab2
 {
     public class AllShops
     {
-        private Dictionary<int, Shop> _shops;
-
-        public AllShops()
-        {
-            _shops = new Dictionary<int, Shop>();
-        }
+        private readonly Dictionary<int, Shop> _shops = new Dictionary<int, Shop>();
 
         public void AddStore(Shop store)
         {
@@ -34,7 +29,7 @@ namespace lab2
             return needfulShop;
         }
 
-        public Shop FindBatchLowPrice(string order)
+        public Shop FindBatchLowPrice(IEnumerable<InInfo> order)
         {
             Shop needfulShop = new Shop();
             int minPrice = 0;
@@ -59,6 +54,6 @@ namespace lab2
 
             return needfulShop;
         }
-        
+
     }
 }

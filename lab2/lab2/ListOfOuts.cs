@@ -3,15 +3,16 @@ using System.Collections.Generic;
 
 namespace lab2
 {
-    public class ListOfOuts
+    public static class ListOfOutsExtensions
     {
-        public void Print(List<OutInfo> outs)
+        public static List<OutInfo> Print(this List<OutInfo> outs)
         {
             foreach (var info in outs)
             {
-                Console.Write(info.Count + " " + info.Name + " / ");
+                Console.WriteLine($"{info.Count} ${info.Name}");
             }
-            Console.Write('\n');
+
+            return outs;
         }
     }
 }
