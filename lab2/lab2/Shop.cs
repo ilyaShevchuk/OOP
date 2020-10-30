@@ -95,19 +95,15 @@ namespace lab2
             return outs;
         }
 
-        public int BuyBatch(string order)
+        public int BuyBatch(IEnumerable<InInfo> order)
         {
-            var words = order.Split(' ');
-            int priceSum = 0;
-            for (int i = 0; i < words.Length; i += 2)
-            {
-                int number = (int) Convert.ChangeType(words[i], typeof(int));
-                int idProduct = (int) Convert.ChangeType(words[i + 1], typeof(int));
-                if (!_range.ContainsKey(idProduct))
+            var priceSum = 0;
+            foreach (var item in order) {
+                if (!_range.ContainsKey(item.Id))
                     throw new InvalidId("No product with this id");
-                if (_range[idProduct].Count < number)
+                if (_range[item.Id].Count < item.Count)
                     throw new NotEnough("Count Ex");
-                priceSum += _range[idProduct].Price * number;
+                priceSum += _range[item.Id].Price * item.Count;
             }
 
             return priceSum;
