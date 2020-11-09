@@ -55,9 +55,9 @@ namespace lab2
             Console.WriteLine(ans.Name);
 
             Shop ans2 = shops.FindBatchLowPrice(new[] {
-                new InInfo(125, 2),
-                new InInfo(126, 2)
-            });
+                    new InInfo(125, 2),
+                    new InInfo(126, 2)
+                });
             Console.WriteLine(ans2.Name);
 
         }
