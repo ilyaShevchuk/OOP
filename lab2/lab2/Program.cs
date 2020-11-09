@@ -8,7 +8,7 @@ namespace lab2
         public static void Main(string[] args)
         {   
             Product p1 = new Product("apple", 123);
-            Product p2 = new Product("orange", 123);
+            Product p2 = new Product("orange", 124);
             Product p3 = new Product("mango", 125);
             Product p4 = new Product("bread", 126);
             Product p5 = new Product("water", 127);
@@ -21,30 +21,41 @@ namespace lab2
             Shop s2 = new Shop(13, "Second Shop");
             Shop s3 = new Shop(14, "Third Shop");
 
-            s1.AddProduct(pi1);
-            s1.AddProduct(pi2);
-            s1.AddProduct(pi3);
-            s1.AddProduct(p4, 412, 18);
-            
-            s2.AddProduct(p3, 12, 200);
-            s2.AddProduct(p4, 300, 20);
-            
-            s3.AddProduct(p4, 14, 25);
-            s3.AddProduct(p3, 12, 350);
+            try
+            {
+                s1.AddProduct(pi1);
+                s1.AddProduct(pi2);
+                s1.AddProduct(pi3);
+                s1.AddProduct(p4, 412, 18);
 
-            s1.HowMuchICanBuy(200).Print();
+                s2.AddProduct(p3, 12, 200);
+                s2.AddProduct(p4, 300, 20);
 
-            try {
+                s3.AddProduct(p4, 14, 25);
+                s3.AddProduct(p3, 12, 350);
+            }
+            catch (AddNewProductWithOldId e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            int buySum = 200;
+            Console.WriteLine($"I can buy with {buySum} :");
+            s1.HowMuchICanBuy(buySum).Print();
+            Console.Write("\nSum of order is: ");
+
+            try { 
                 var k = s1.BuyBatch(new[] {
                     new InInfo(124, 3),
                     new InInfo(123, 4)
-                });
+                }, true);
                 Console.WriteLine(k);
             } catch (NotEnough e) {
                 Console.WriteLine(e.Message);
             } catch (InvalidId e)  {
                 Console.WriteLine(e.Message);
             }
+            Console.Write("\nFind Lowest price: ");
             
             AllShops shops = new AllShops();
             shops.AddStore(s1);
@@ -53,6 +64,7 @@ namespace lab2
 
             Shop ans = shops.FindProductLowPrice(p4);
             Console.WriteLine(ans.Name);
+            Console.Write("\nFind Lowest price for batch: ");
 
             Shop ans2 = shops.FindBatchLowPrice(new[] {
                     new InInfo(125, 2),

@@ -6,6 +6,7 @@ namespace lab2
     public class Shop
     {
         private string _name, _address;
+        private int _id;
 
         public string Name
         {
@@ -22,16 +23,12 @@ namespace lab2
         public int Id
         {
             get => _id;
-            set => _id = value;
         }
 
         public Dictionary<int, ProductInfo> Range
         {
             get => _range;
-            set => _range = value;
         }
-
-        private int _id;
         private Dictionary<int, ProductInfo> _range;
 
         public Shop(int id = 0, string name = "", string address = "")
@@ -39,6 +36,7 @@ namespace lab2
             _name = name;
             _address = address;
             _id = id;
+            Name = name;
             _range = new Dictionary<int, ProductInfo>();
         }
 
@@ -46,6 +44,9 @@ namespace lab2
         {
             if (_range.ContainsKey(product.Id))
             {
+                if (product.Name != _range[product.Id].Product.Name)
+                    throw new AddNewProductWithOldId($"{product.Id} already have " +
+                                                     $"with name {_range[product.Id].Product.Name}");
                 _range[product.Id].Count += count;
                 _range[product.Id].Price = price;
             }
@@ -95,7 +96,7 @@ namespace lab2
             return outs;
         }
 
-        public int BuyBatch(IEnumerable<InInfo> order)
+        public int BuyBatch(IEnumerable<InInfo> order, bool needBuy)
         {
             var priceSum = 0;
             foreach (var item in order) {
@@ -104,6 +105,8 @@ namespace lab2
                 if (_range[item.Id].Count < item.Count)
                     throw new NotEnough("Count Ex");
                 priceSum += _range[item.Id].Price * item.Count;
+                if (needBuy)
+                    _range[item.Id].Count -= item.Count;
             }
 
             return priceSum;

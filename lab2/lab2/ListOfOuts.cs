@@ -9,7 +9,7 @@ namespace lab2
         {
             foreach (var info in outs)
             {
-                Console.WriteLine($"{info.Count} ${info.Name}");
+                Console.WriteLine($"{info.Count} {info.Name}");
             }
 
             return outs;

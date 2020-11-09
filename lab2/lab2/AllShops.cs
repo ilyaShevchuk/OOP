@@ -38,7 +38,7 @@ namespace lab2
                 int sumPrice;
                 try
                 { 
-                    sumPrice = store.BuyBatch(order);
+                    sumPrice = store.BuyBatch(order, false);
                 }
                 catch (Exception e)
                 {

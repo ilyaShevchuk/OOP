@@ -12,5 +12,10 @@ namespace lab2
         public NotEnough(string message)
             : base(message)
         {}
-    }   
+    }public class AddNewProductWithOldId : Exception
+    {
+        public AddNewProductWithOldId(string message)
+            : base(message)
+        {}
+    }      
 }
