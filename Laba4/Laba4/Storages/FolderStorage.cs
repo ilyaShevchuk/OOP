@@ -9,7 +9,7 @@ namespace Laba4
         protected override FileCopyInfo CreateFileCopyInfo(string filePath, long size)
         {
             string fileName = System.IO.Path.GetFileName(filePath);
-            return new FileCopyInfo("Directory:\\" + fileName, 100, DateTime.Now);
+            return new FileCopyInfo("Directory:\\" + fileName, size, DateTime.Now);
         }
 
         public override List<FileCopyInfo> Save(List<string> filesPath)
