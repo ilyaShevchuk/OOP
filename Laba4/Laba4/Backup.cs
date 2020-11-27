@@ -24,12 +24,12 @@ namespace Laba4
                 return res;
             }
         }
-        public Backup(List<string> filesPath, DateTime createTime, int id, List<IRestorePoint> restorePoints)
+        public Backup(int id, List<string> filesPath, DateTime createTime)
         {
             FilesPath = filesPath;
             CreateTime = createTime;
             Id = id;
-            RestorePoints = restorePoints;
+            RestorePoints = new List<IRestorePoint>();
         }
         
         public void AddRestorePoint(IRestorePoint restorePoint)

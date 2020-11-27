@@ -12,12 +12,13 @@ namespace TestLab4
         public void TestCase1()
         {
             List<string> filesPath = new List<string>() {"/path/file", "/path/file2"};
-            Backup backup = new Backup(2345, filesPath, DateTime.Now);
+            Backup backup = new Backup(1377, filesPath, DateTime.Now);
             FolderStorageAlgo storage = new FolderStorageAlgo();
             var copies = storage.Save(backup.FilesPath);
             FullRestoreCreationPoint pointCreation = new FullRestoreCreationPoint();
             var point = pointCreation.Create(copies);
             backup.AddRestorePoint(point);
+            Assert.AreEqual(200, backup.Size);
             CountLimitClear cleaner = new CountLimitClear(1);
             cleaner.Clear(backup);
             Assert.AreEqual(1, backup.RestorePoints.Count);
@@ -27,7 +28,7 @@ namespace TestLab4
         public void TestCase2()
         {
             List<string> filesPath = new List<string>() {"/path/file1", "/path/file2", "/path/file3"};
-            Backup backup = new Backup(2345, filesPath, DateTime.Now);
+            Backup backup = new Backup(1377, filesPath, DateTime.Now);
             FolderStorageAlgo storage = new FolderStorageAlgo();
             var copies1 = storage.Save(backup.FilesPath);
             FullRestoreCreationPoint pointCreation1 = new FullRestoreCreationPoint();
