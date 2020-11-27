@@ -18,7 +18,6 @@ namespace TestLab4
             FullRestoreCreationPoint pointCreation = new FullRestoreCreationPoint();
             var point = pointCreation.Create(copies);
             backup.AddRestorePoint(point);
-            Assert.AreEqual(200, backup.Size);
             CountLimitClear cleaner = new CountLimitClear(1);
             cleaner.Clear(backup);
             Assert.AreEqual(1, backup.RestorePoints.Count);
