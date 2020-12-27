@@ -15,7 +15,7 @@ namespace Lab5.Accounts
             Comission = comission;
         }
         
-        public void CalculateComission() => _comissionSum += Balance * Comission / 100;
+        public int CalculateComission(int sum) =>  (int) (sum * Comission / 100);
         
         public void SubtractComission()
         {
@@ -25,5 +25,14 @@ namespace Lab5.Accounts
 
 
         public override bool IsWithdrawAvaliable(int sum) => Math.Abs(Balance - sum) < Limit;
+        public override void TransferTime(DateTime newDate)
+        {
+            return;
+        }
+
+        public override int CalcNewSum(int sum)
+        {
+            return CalculateComission(sum);
+        }
     }
 }

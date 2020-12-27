@@ -104,7 +104,7 @@ namespace laba5.BankDir
                 && sum > BankConfig.NotCertifiedClientLimit
                 && !account.IsWithdrawAvaliable(sum))
                 throw new UnsuccessfulWithdrawalExc("Can't withdraw from account " + account.Id);
-            
+            sum = account.CalcNewSum(sum);
             var withdrawOperation = new WithdrawOperation(_idCounter++, account, sum);
             withdrawOperation.DoOperation();
             BankConfig.Operations.Add(withdrawOperation);
