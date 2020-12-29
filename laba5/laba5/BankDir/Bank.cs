@@ -60,6 +60,17 @@ namespace laba5.BankDir
             BankConfig.ClientIdAccounts[client.Id].Add(account);
         }
 
+        public void TransferTime(DateTime newDate)
+        {
+            foreach (var clientAccount in BankConfig.ClientIdAccounts)
+            {
+                foreach (var account in clientAccount.Value)
+                {
+                    account.TransferTime(newDate);
+                }
+            }
+        }
+
         private bool CheckClient(Client client) =>
             !String.IsNullOrEmpty(client.Adress) || !String.IsNullOrEmpty(client.Passport);
 
@@ -88,18 +99,19 @@ namespace laba5.BankDir
             return false;
         }
 
-        public void AddMoney(int id, int sum)
+        public void AddMoney(IAccount master, int sum)
         {
-            if (!TryGetClientAccount(id, out var client, out var account))
+            
+            if (!TryGetClientAccount(master.Id, out var client, out var account))
                 throw new WrongIdEx("Account Id " + account.Id + " don't exists");
             var addOperation = new AddOperation(_idCounter++, account, sum);
             addOperation.DoOperation();
             BankConfig.Operations.Add(addOperation);
         }
 
-        public void WithdrawMoney(int id, int sum)
+        public void WithdrawMoney(IAccount master, int sum)
         {
-            if (!TryGetClientAccount(id, out var client, out var account)
+            if (!TryGetClientAccount(master.Id, out var client, out var account)
                 && !CheckClient(client)
                 && sum > BankConfig.NotCertifiedClientLimit
                 && !account.IsWithdrawAvaliable(sum))
@@ -110,10 +122,12 @@ namespace laba5.BankDir
             BankConfig.Operations.Add(withdrawOperation);
         }
 
-        public void TransferMoney(int id1, int id2, int sum)
+        public void TransferMoney(IAccount sender, IAccount recipient, int sum)
         {
             IAccount account2 = null;
             Client client2 = null;
+            var id1 = sender.Id;
+            var id2 = recipient.Id;
             if (!TryGetClientAccount(id1, out var client1, out var account1)
                 && !TryGetClientAccount(id2, out client2, out account2)
                 && !CheckClient(client1)
@@ -123,7 +137,7 @@ namespace laba5.BankDir
                 throw new UnsuccessfulWithdrawalExc("Can't transfer from account " + account1.Id);
 
 
-            var transferOperation = new TransferOperation(_idCounter++, account1, account2, sum);
+            var transferOperation = new TransferOperation(_idCounter++, sender, recipient, sum);
             transferOperation.DoOperation();
             BankConfig.Operations.Add(transferOperation);
         }
