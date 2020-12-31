@@ -46,10 +46,7 @@
         <Compile Include="BankDir\BankConfig.cs" />
         <Compile Include="ClientCreate\Client.cs" />
         <Compile Include="ClientCreate\ClientBuilder.cs" />
-        <Compile Include="ClientCreate\ClientMaker.cs" />
         <Compile Include="ClientCreate\IBuilder.cs" />
-        <Compile Include="Exceptions\LimitEx.cs" />
-        <Compile Include="Exceptions\NotEnoughMoneyEx.cs" />
         <Compile Include="Exceptions\UnsuccessfulWithdrawalExc.cs" />
         <Compile Include="Exceptions\WrongDate.cs" />
         <Compile Include="Exceptions\WrongIdEx.cs" />
