@@ -9,7 +9,7 @@ namespace laba5
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             var depPercenteges = new List<(int, double)>
             {
@@ -23,20 +23,30 @@ namespace laba5
             Client cl1 = clientFactory.SetName("Gena").SetSurname("Bukin").SetAdress("Groove str").SetPassport("1214").Build();
             Client cl2 = clientFactory.SetName("Lena").SetSurname("Poleno").SetAdress("G2 str").SetPassport("1213").Build();
 
-            var genAcc = sberBank.CreateDepositAccount(1000, 2);
-            var lenAcc = sberBank.CreateDebitAccount(2000);
+            var genAcc = sberBank.CreateDepositAccount(100000, 2);
+            var lenAcc = sberBank.CreateDebitAccount(200000);
+            Console.WriteLine($"Gena balance = {genAcc.Balance}, Lena balance = {lenAcc.Balance}");
             sberBank.AddClient(cl1);
             sberBank.AddAccount(cl1, genAcc);
             sberBank.AddClient(cl2);
-            sberBank.AddAccount(cl2,lenAcc);
-            
-            sberBank.AddMoney(genAcc, 2000);
-            sberBank.TransferMoney(genAcc, lenAcc, 500);
-            Console.WriteLine(genAcc.Balance);
-            Console.WriteLine(lenAcc.Balance);
-            
-            sberBank.TransferTime(DateTime.Now.AddDays(41));
-            Console.WriteLine(lenAcc.Balance);
+            sberBank.AddAccount(cl2,lenAcc); ;
+            sberBank.TransferTime(DateTime.Now.AddDays(19));
+            Console.WriteLine("21 days ago");
+            //была одна выплата 31ого числа
+            Console.WriteLine($"Gena balance = {genAcc.Balance}, Lena balance = {lenAcc.Balance}");
+            sberBank.TransferTime(DateTime.Now);
+            Console.WriteLine("Return to today");
+            Console.WriteLine($"Gena balance = {genAcc.Balance}, Lena balance = {lenAcc.Balance}");
+            Console.WriteLine("Transfer money : Gena to Lena");
+            var id1 = sberBank.TransferMoney(genAcc, lenAcc, 50000);
+            Console.WriteLine($"Gena balance = {genAcc.Balance}, Lena balance = {lenAcc.Balance}");
+            Console.WriteLine("Undo operation by ID");
+            sberBank.UndoOperation(id1);
+            Console.WriteLine($"Gena balance = {genAcc.Balance}, Lena balance = {lenAcc.Balance}");
+            sberBank.TransferTime(DateTime.Now.AddDays(51));
+            Console.WriteLine("65 days ago");
+            //было две выплаты , последнего числа каждого месяца
+            Console.WriteLine($"Gena balance = {genAcc.Balance}, Lena balance = {lenAcc.Balance}");
 
         }
     }

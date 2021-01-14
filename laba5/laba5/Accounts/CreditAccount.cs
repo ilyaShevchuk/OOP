@@ -14,20 +14,18 @@ namespace Lab5.Accounts
             Limit = limit;
             Comission = comission;
         }
-        
         public int CalculateComission(int sum) =>  (int) (sum * Comission / 100);
-        
-        public void SubtractComission()
-        {
-            Balance -= (int)_comissionSum;
-            _comissionSum = 0;
-        }
-
+        public override void ClearProfit() {}
 
         public override bool IsWithdrawAvaliable(int sum) => Math.Abs(Balance - sum) < Limit;
-        public override void TransferTime(DateTime newDate)
+        public override void CalculateDayProfit()
         {
             return;
+        }
+
+        public override int PayProfit()
+        {
+            return 0;
         }
 
         public override int CalcNewSum(int sum)

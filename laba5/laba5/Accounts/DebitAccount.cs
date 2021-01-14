@@ -13,32 +13,25 @@ namespace laba5.Accounts
             Persentage = persentage;
         }
 
-        public void CalculateDayProfit() => _profit += Balance * Persentage / 365;
-        
-        public void PayProfit()
+        public override void CalculateDayProfit()
         {
-            Balance += (int)_profit;
+            _profit += Balance * Persentage / 365 / 100;   
+        }
+        public override int PayProfit()
+        {
+            var profitPay = _profit;
+            _profit = 0;
+            return (int) profitPay;
+        }
+
+        public override void ClearProfit()
+        {
             _profit = 0;
         }
 
-        public override bool IsWithdrawAvaliable(int sum) => Balance >= sum;
-        public override void TransferTime(DateTime newDate)
+        public override bool IsWithdrawAvaliable(int sum)
         {
-            if (newDate < LastPayDate)
-                throw new WrongDate( $"{newDate} was earlier than the last withdrawal date {LastPayDate}");
-            DateTime currentDate = LastPayDate.Date;
-            newDate = newDate.Date;
-            while (currentDate != newDate)
-            {
-                if (currentDate.AddDays(1).Day == 1)
-                    PayProfit();
-                
-
-                CalculateDayProfit();
-                currentDate = currentDate.AddDays(1);
-            }
-
-            LastPayDate = currentDate;
+            return Balance >= sum;
         }
 
         public override int CalcNewSum(int sum)

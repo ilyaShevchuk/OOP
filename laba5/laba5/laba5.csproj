@@ -48,8 +48,8 @@
         <Compile Include="ClientCreate\ClientBuilder.cs" />
         <Compile Include="ClientCreate\IBuilder.cs" />
         <Compile Include="Exceptions\UnsuccessfulWithdrawalExc.cs" />
-        <Compile Include="Exceptions\WrongDate.cs" />
         <Compile Include="Exceptions\WrongIdEx.cs" />
+        <Compile Include="Extensions.cs" />
         <Compile Include="Operations\AddOperation.cs" />
         <Compile Include="Operations\IOperation.cs" />
         <Compile Include="Operations\TransferOperation.cs" />
